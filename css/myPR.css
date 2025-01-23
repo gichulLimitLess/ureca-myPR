@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&family=Kirang+Haerang&display=swap');
+
+/* 부드러운 스크롤을 위함 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 메인 타이틀용 글씨체 ("허준호를 소개-합니다" 텍스트) */
+.cute-font-mainTitle {
+  font-family: "Cute Font", serif;
+  font-size: clamp(1.5rem, 5vw, 4rem); /* 최소 1.5rem, 최대 3rem, 뷰포트에 따라 5vw */
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 왼쪽 네비 관련하여 웹 폰트를 적용한다 */
+.cute-font-contentText {
+  font-family: "Cute Font", serif;
+  color: black;
+  font-weight: 600;
+  font-size: clamp(0.7rem, 1.7vw, 4rem);
+  letter-spacing: 2px;
+}
+
+/* 취미 섹션에서의 tmi 부분*/
+.hobby-detailText {
+  margin: 2% auto;
+  font-family: "Cute Font", serif;
+  color: black;
+  font-weight: 600;
+  font-size: clamp(0.7rem, 1.3vw, 2rem);
+  letter-spacing: 2px;
+}
+
+/* 각 카드 섹션의 타이틀에 사용할 것임 */
+.kirang-haerang-sectionTitle {
+  font-family: "Kirang Haerang", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  font-style: normal;
+  color: yellow;
+}
+
+
+#name {
+  color:rgb(70, 255, 53);
+  font-weight: 900;
+  animation: titleBlinking 0.8s alternate linear infinite;
+}
+
+#star {
+  color: rgb(242, 255, 65);
+  font-weight: 900;
+  animation: titleBlinking 0.2s alternate linear infinite;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-attachment: fixed; /* 배경을 고정 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  background: linear-gradient(120deg, red, rgb(255, 49, 224), rgb(11, 0, 161), rgb(24, 255, 255), rgb(20, 168, 0), rgb(255, 245, 46), rgb(255, 0, 0));
+}
+
+/* 왼쪽에 고정될 nav창 */
+.navi {
+  position: fixed;
+  top: 30%;
+  left: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+  padding: 30px;
+  padding-bottom: 10px;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 15px;
+}
+
+.navi ul{
+  list-style: none;
+  padding: 0; /* list-style: none 옵션으로 인해 발생한 왼쪽의 공백 제거 */
+  text-align: center;
+}
+
+.navi ul li {
+  padding: 0;
+  margin: 32px 0;
+}
+
+/* 왼쪽 네비 관련하여 웹 폰트를 적용한다 */
+.navi a {
+  font-family: "Cute Font", serif;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+/* 포커싱 되었을 때, 혹은 포커스가 맞춰졌을 때의 스타일 지정 */
+.navi a:hover,
+.navi a:focus {
+  color: yellow;
+}
+
+/* 주요 정보들을 넣기 위한 가운데의 컨테이너 */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+  min-height: 100vh; /* 최소한 뷰 포트를 꽉 채워야 함 */
+  margin: 0 auto;
+  padding: 20px 0;
+  background-color: rgba(255,255,255,0.3);
+}
+
+.container img {
+  margin: 24px auto;
+  width: 100%;
+}
+
+/* 우측 하단의 보노보노 */
+.bonobono {
+  width: 200px;
+  height: auto;
+  position: fixed; /* 브라우저 창에 고정(스크롤해도 똑같은 자리에 계속 있음) */
+  bottom: 0px;
+  right: 24px;
+}
+
+/* 각 정보들을 표시할 카드 섹션 */
+.cardSection {
+  margin-bottom: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1vh 3vw;
+}
+
+
+/* 프로필 영역의 사진 스타일 바꿀 것임*/
+#profile img {
+  margin: 5% 0;
+  width: 30%;
+  height: 30%;
+  border: 8px solid gray;
+  border-radius: 50%;
+}
+
+/* 취미 영역의 사진 스타일 바꿀 것임*/
+#hobby img {
+  margin: 12% 0 2% 0;
+  width: 80%; /* 부모 요소의 80% 크기로 너비 설정*/
+  border-radius: 10px;
+}
+
+#careers img {
+  margin: 5% 0;
+  width: 24%;
+  height: 24%;
+  border-radius: 50%;
+}
+
+#tel a {
+  padding: 0 0;
+  width: 50%;
+}
+
+.hobbyBox {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* 각 섹션 안에 하위 섹션 */
+.partSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 텍스트 들어가는 textbox */
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#tmi img {
+  margin: 5% 0;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+}
+
+/* 768px 이하일 땐 navi 숨기기 */
+@media (max-width: 960px) {
+  .navi {
+    display: none;
+  }
+}
+
+/* 768px 이하일 땐 navi 숨기기 */
+@media (min-width: 1420px) {
+  .bonobono {
+    width: 300px;
+  }
+}
+
+/* 타이틀 깜빡 거리게 할 것임! */
+@keyframes titleBlinking {
+  0% {
+    opacity: 1; /* 완전히 보임 */
+  }
+
+  50% {
+    opacity: 0; /* 완전히 숨김 */
+  }
+
+  100% {
+    opacity: 1; /* 완전히 숨김 */
+  }
+}
+
+
+
