@@ -26,18 +26,52 @@ const teachingImages = [
   "image/school-4.JPG"
 ];
 
-// 이미지 교체 함수 imageSlideShows
+// 이미지 미리 로드 함수
+function preloadImages(imageArray, callback) {
+  let loadedImages = 0;
+  const totalImages = imageArray.length;
+
+  imageArray.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      loadedImages++;
+      if (loadedImages === totalImages) {
+        callback(); // 모든 이미지 로딩 완료 시 콜백 실행
+      }
+    };
+    img.onerror = () => {
+      console.error(`Failed to load image: ${src}`);
+    };
+  });
+}
+
+// 이미지 슬라이드쇼 함수
 function imageSlideShows(elementId, imageArray, time) {
   let index = 0;
   const element = document.getElementById(elementId);
 
+  if (!element) {
+    console.error(`Element with ID "${elementId}" not found.`);
+    return;
+  }
+
+  // 첫 번째 이미지를 설정
+  element.src = imageArray[index];
+
   setInterval(() => {
-    index = (index + 1) % imageArray.length; // 배열 인덱스 순환
-    element.src = imageArray[index];        // src 속성 변경
-  }, time); // 매개변수로 들어온 초마다 실행
+    index = (index + 1) % imageArray.length; // 다음 이미지로 이동
+    element.src = imageArray[index];
+  }, time);
 }
 
-//각 섹션에 대한 함수 호출
-imageSlideShows("hiphop-image", hiphopImages, 3500);
-imageSlideShows("marathon-image", marathonImages, 3500);
-imageSlideShows("teaching-image", teachingImages, 3500);
+// 슬라이드 쇼 시작 함수
+function startSlideshow() {
+  imageSlideShows("hiphop-image", hiphopImages, 2800);
+  imageSlideShows("marathon-image", marathonImages, 2800);
+  imageSlideShows("teaching-image", teachingImages, 2800);
+}
+
+// 모든 이미지를 미리 로드한 후 슬라이드 쇼 시작
+preloadImages([...hiphopImages, ...marathonImages, ...teachingImages], startSlideshow);
+

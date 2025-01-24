@@ -173,6 +173,11 @@ body {
   width: 50%;
 }
 
+/* SNS 아이콘 hover 했을 때 그림자 표시 */
+#tel a:hover {
+  filter: drop-shadow(6px 6px 5px white);
+}
+
 .hobbyBox {
   width: 32%;
   display: flex;
